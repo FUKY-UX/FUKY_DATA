@@ -18,8 +18,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 192,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -29,7 +33,8 @@
               "ToolTip": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-20T08:34:49.272Z"
+              "WhenOpened": "2025-02-20T08:34:49.272Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -39,7 +44,7 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAqwHwAAAAVAAAA",
+              "ViewState": "AQIAADAAAAAAAAAAAAAowEAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T08:34:48.742Z",
               "EditorCaption": ""
