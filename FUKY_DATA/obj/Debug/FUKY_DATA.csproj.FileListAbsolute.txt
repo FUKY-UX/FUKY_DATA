@@ -1,0 +1,5 @@
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\Debug\FUKY_DATA.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\Debug\MainWindow.g.cs
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\Debug\App.g.cs
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\Debug\FUKY_DATA_MarkupCompile.cache
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\Debug\FUKY_DATA_MarkupCompile.lref

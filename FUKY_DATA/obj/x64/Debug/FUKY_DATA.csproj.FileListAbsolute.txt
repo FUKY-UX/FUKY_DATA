@@ -1,0 +1,14 @@
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\bin\x64\Debug\FUKY_DATA.exe.config
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\bin\x64\Debug\FUKY_DATA.exe
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\bin\x64\Debug\FUKY_DATA.pdb
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA.csproj.AssemblyReference.cache
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\MainWindow.g.cs
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\App.g.cs
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA_MarkupCompile.cache
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\MainWindow.baml
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA.g.resources
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA.Properties.Resources.resources
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA.csproj.GenerateResource.cache
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA.exe
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA.pdb

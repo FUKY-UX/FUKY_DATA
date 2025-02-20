@@ -1,0 +1,20 @@
+﻿<!-- MainWindow.xaml -->
+<Window x:Class="FUKY_DATA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="浮奇设备" Height="450" Width="800">
+    <Grid>
+        <ListView Name="DeviceList" Margin="10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="设备名称" Width="200" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="连接状态" Width="100" DisplayMemberBinding="{Binding Status}"/>
+                    <GridViewColumn Header="设备ID" Width="300" DisplayMemberBinding="{Binding DeviceId}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="扫描设备" Click="ScanButton_Click" 
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Margin="10" Width="80" Height="30"/>
+    </Grid>
+</Window>
