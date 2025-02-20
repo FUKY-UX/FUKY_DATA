@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{9657359A-9A06-41E1-BF7B-B9B95E146F60}|FUKY_DATA.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9657359A-9A06-41E1-BF7B-B9B95E146F60}|FUKY_DATA.csproj|c:\\users\\dell\\desktop\\fuky_driver\\fuky_data\\fuky_data\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{9657359A-9A06-41E1-BF7B-B9B95E146F60}|FUKY_DATA.csproj|C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{9657359A-9A06-41E1-BF7B-B9B95E146F60}|FUKY_DATA.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -29,8 +29,7 @@
               "ToolTip": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-20T08:34:49.272Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-20T08:34:49.272Z"
             },
             {
               "$type": "Document",
@@ -40,7 +39,7 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAEkAAAAAAAAAAAA1wFUAAAAVAAAA",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAqwHwAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T08:34:48.742Z",
               "EditorCaption": ""

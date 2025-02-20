@@ -9,6 +9,9 @@ using System.Windows;
 using System.Linq;
 using Windows.Devices.Bluetooth;
 using Windows.Devices.Enumeration;
+using System.Collections.Generic;
+using Windows.Devices.Bluetooth.GenericAttributeProfile;
+using Windows.Devices.Input;
 
 
 
@@ -16,7 +19,8 @@ namespace FUKY_DATA
 {
     public partial class MainWindow : Window
     {
-
+        private static readonly Guid TARGET_SERVICE_UUID = new Guid("0000f233-0000-1000-8000-00805f9b34fb");
+        private BluetoothDeviceInfo FUKY_DEVICE;
         public ObservableCollection<BluetoothDeviceInfo> Devices { get; } = new ObservableCollection<BluetoothDeviceInfo>();
         // 添加Windows运行时设备观察器
         private DeviceWatcher bluetoothWatcher;
@@ -76,6 +80,9 @@ namespace FUKY_DATA
             // 获取详细连接状态
             var isActuallyConnected = await CheckActualConnection(device.Id);
 
+            // 获取设备服务信息
+            var hasTargetService = await CheckDeviceServices(device.Id);
+
             Application.Current.Dispatcher.Invoke(() =>
             {
                 var existing = Devices.FirstOrDefault(d => d.DeviceId == device.Id);
@@ -84,13 +91,23 @@ namespace FUKY_DATA
                 {
                     if (existing == null)
                     {
-                        Devices.Add(new BluetoothDeviceInfo
+                        var newDevice = new BluetoothDeviceInfo
                         {
                             Name = device.Name,
                             Status = "Active",
                             DeviceId = device.Id,
-                            IsActive = true
-                        });
+                            IsActive = true,
+                            ServiceUUIDs = new List<Guid>() // 添加服务UUID集合
+                        };
+
+                        Devices.Add(newDevice);
+
+                        if (hasTargetService)
+                        {
+                            // 保存到专用变量
+                            FUKY_DEVICE = newDevice;
+                            Debug.WriteLine($"找到浮奇设备: {FUKY_DEVICE.Name}");
+                        }
                     }
                     else
                     {
@@ -121,13 +138,14 @@ namespace FUKY_DATA
             }
         }
 
-        // 修改后的设备信息类
+        // 设备信息类
         public class BluetoothDeviceInfo
         {
             public string Name { get; set; }
             public string Status { get; set; }
             public string DeviceId { get; set; }
             public bool IsActive { get; set; }
+            public List<Guid> ServiceUUIDs { get; set; } // 存储服务UUID列表
         }
 
         // 启动/停止观察器
@@ -149,5 +167,31 @@ namespace FUKY_DATA
 
             base.OnClosed(e);
         }
+
+        // 新增服务检查方法
+        private async Task<bool> CheckDeviceServices(string deviceId)
+        {
+            try
+            {
+                using (var device = await BluetoothLEDevice.FromIdAsync(deviceId))
+                {
+                    if (device == null) return false;
+
+                    // 获取所有GATT服务
+                    var servicesResult = await device.GetGattServicesAsync();
+                    if (servicesResult.Status != GattCommunicationStatus.Success) return false;
+
+                    // 检查目标服务是否存在
+                    return servicesResult.Services.Any(service =>
+                        service.Uuid == TARGET_SERVICE_UUID);
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
     }
 }
