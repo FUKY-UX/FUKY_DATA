@@ -13,9 +13,11 @@ using Windows.Storage.Streams;
 namespace FUKY_DATA.Services
 {
 
-    // 定义数据结构体
-    public readonly struct ImuData
+
+// 在ImuData结构体中添加缩放逻辑
+public readonly struct ImuData
     {
+        // 原始数据
         public short LinAccelX { get; }
         public short LinAccelY { get; }
         public short LinAccelZ { get; }
@@ -24,9 +26,13 @@ namespace FUKY_DATA.Services
         public short QuatK { get; }
         public short QuatW { get; }
 
+        // 根据硬件文档定义的Q格式位数
+        private const int AccelScaleBits = 8;   // 加速度Q8格式
+        private const int QuatScaleBits = 14;   // 四元数Q14格式
+
         public ImuData(
             short linAccelX, short linAccelY, short linAccelZ,
-            short quatI, short quatJ, short quatK, short quatW)
+            short quatI, short quatJ, short quatK, short quatW) // 添加精度参数
         {
             LinAccelX = linAccelX;
             LinAccelY = linAccelY;
@@ -35,11 +41,27 @@ namespace FUKY_DATA.Services
             QuatJ = quatJ;
             QuatK = quatK;
             QuatW = quatW;
+
         }
 
+        // 缩放计算方法
+        private static float Scale(int qFormatBits) => 1.0f / (1 << qFormatBits);
+
+        // 加速度转换属性
+        public float AccelerationX => LinAccelX * Scale(AccelScaleBits);
+        public float AccelerationY => LinAccelY * Scale(AccelScaleBits);
+        public float AccelerationZ => LinAccelZ * Scale(AccelScaleBits);
+
+        // 四元数转换属性
+        public float QuaternionI => QuatI * Scale(QuatScaleBits);
+        public float QuaternionJ => QuatJ * Scale(QuatScaleBits);
+        public float QuaternionK => QuatK * Scale(QuatScaleBits);
+        public float QuaternionW => QuatW * Scale(QuatScaleBits);
+
+        // 格式化输出
         public override string ToString() =>
-            $"Accel({LinAccelX}, {LinAccelY}, {LinAccelZ}) " +
-            $"Quat({QuatI}, {QuatJ}, {QuatK}, {QuatW})";
+            $"Accel: ({AccelerationX:F3}g, {AccelerationY:F3}g, {AccelerationZ:F3}g)\n" +
+            $"Quat: ({QuaternionI:F5}, {QuaternionJ:F5}, {QuaternionK:F5}, {QuaternionW:F5})\n";
     }
     internal class DataSolution : IDisposable
     {
@@ -229,8 +251,13 @@ namespace FUKY_DATA.Services
                 }
 
                 imuData = new ImuData(
-                    int16Values[0], int16Values[1], int16Values[2],
-                    int16Values[3], int16Values[4], int16Values[5], int16Values[6]
+                    int16Values[0], 
+                    int16Values[1], 
+                    int16Values[2],
+                    int16Values[3], 
+                    int16Values[4], 
+                    int16Values[5], 
+                    int16Values[6]
                 );
                 return true;
             }

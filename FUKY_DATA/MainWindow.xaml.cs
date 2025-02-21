@@ -39,14 +39,16 @@ namespace FUKY_DATA.Views
         private void OnDataReceived(byte[] rawData, ImuData data) 
         {
 
+
             // 转换为十六进制字符串
             var hexString = BitConverter.ToString(rawData).Replace("-", " ");
 
             // 格式化四元数
-            var quatString = $"I:{data.QuatI} J:{data.QuatJ} K:{data.QuatK} W:{data.QuatW}";
+            var quatString = $"I:{data.QuaternionI:F5} J:{data.QuaternionJ:F5} K:{data.QuaternionK:F5} W:{data.QuaternionW:F5}";
 
             // 格式化加速度
-            var accelString = $"X:{data.LinAccelX} Y:{data.LinAccelY} Z:{data.LinAccelZ}";
+            var accelString = $"X:{data.AccelerationX:F3} Y:{data.AccelerationY:F3} Z:{data.AccelerationZ:F3}";
+
 
             Dispatcher.Invoke(() =>
             {
