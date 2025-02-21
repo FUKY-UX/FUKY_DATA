@@ -12,8 +12,38 @@ using Windows.Storage.Streams;
 
 namespace FUKY_DATA.Services
 {
+
+    // 定义数据结构体
+    public readonly struct ImuData
+    {
+        public short LinAccelX { get; }
+        public short LinAccelY { get; }
+        public short LinAccelZ { get; }
+        public short QuatI { get; }
+        public short QuatJ { get; }
+        public short QuatK { get; }
+        public short QuatW { get; }
+
+        public ImuData(
+            short linAccelX, short linAccelY, short linAccelZ,
+            short quatI, short quatJ, short quatK, short quatW)
+        {
+            LinAccelX = linAccelX;
+            LinAccelY = linAccelY;
+            LinAccelZ = linAccelZ;
+            QuatI = quatI;
+            QuatJ = quatJ;
+            QuatK = quatK;
+            QuatW = quatW;
+        }
+
+        public override string ToString() =>
+            $"Accel({LinAccelX}, {LinAccelY}, {LinAccelZ}) " +
+            $"Quat({QuatI}, {QuatJ}, {QuatK}, {QuatW})";
+    }
     internal class DataSolution : IDisposable
     {
+
         private readonly BluetoothManager _btManager;
         private CancellationTokenSource _cts;
         private GattCharacteristic _dataCharacteristic;
@@ -24,14 +54,13 @@ namespace FUKY_DATA.Services
         private static readonly Guid CHARACTERISTIC_UUID = new Guid("0000f666-0000-1000-8000-00805f9b34fb");
 
         // 事件用于向外传递数据
-        public event Action<byte[]> DataReceived;
+        public event Action<byte[], ImuData> DataReceived;
         public event Action<string> ErrorOccurred;
 
         public DataSolution(BluetoothManager bluetoothManager)
         {
             _btManager = bluetoothManager;
             StartMonitoring(); //初始化后立即启动监控
-
         }
 
         public void StartMonitoring()
@@ -128,13 +157,17 @@ namespace FUKY_DATA.Services
 
                     // 主动读取数据
                     var readResult = await _dataCharacteristic.ReadValueAsync(BluetoothCacheMode.Uncached);
-                    if (readResult.Status == GattCommunicationStatus.Success)
+                    if (readResult.Value == null || readResult.Status == GattCommunicationStatus.Success)
                     {
                         var data = ReadBufferToArray(readResult.Value);
-                        DataReceived?.Invoke(data);
+                        // 复用解析逻辑
+                        if (TryParseImuData(data, out var imuData))
+                        {
+                            DataReceived?.Invoke(data, imuData);
+                        }
                     }
 
-                    await Task.Delay(500, token); // 500ms读取间隔
+                   // await Task.Delay(500, token); // 500ms读取间隔
                 }
                 catch (TaskCanceledException)
                 {
@@ -149,9 +182,18 @@ namespace FUKY_DATA.Services
 
         private void Characteristic_ValueChanged(GattCharacteristic sender, GattValueChangedEventArgs args)
         {
-            // 处理通知数据
-            var data = ReadBufferToArray(args.CharacteristicValue);
-            DataReceived?.Invoke(data);
+            try
+            {
+                var bytes = ReadBufferToArray(args.CharacteristicValue);
+                if (TryParseImuData(bytes, out var imuData))
+                {
+                    DataReceived?.Invoke(bytes, imuData);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorOccurred?.Invoke($"通知数据解析失败: {ex.Message}");
+            }
         }
 
         private byte[] ReadBufferToArray(IBuffer buffer)
@@ -167,5 +209,39 @@ namespace FUKY_DATA.Services
             StopMonitoring();
             _cts?.Dispose();
         }
+
+        // 新增通用解析方法
+        private bool TryParseImuData(byte[] bytes, out ImuData imuData)
+        {
+            imuData = default;
+            try
+            {
+                if (bytes.Length != 14)
+                {
+                    return false;
+                }
+
+                var int16Values = new short[7];
+                for (int i = 0; i < 7; i++)
+                {
+                    int offset = i * 2;
+                    int16Values[i] = BitConverter.ToInt16(bytes, offset);
+                }
+
+                imuData = new ImuData(
+                    int16Values[0], int16Values[1], int16Values[2],
+                    int16Values[3], int16Values[4], int16Values[5], int16Values[6]
+                );
+                return true;
+            }
+            catch (Exception ex)
+            {
+                ErrorOccurred?.Invoke($"数据解析异常: {ex.Message}");
+                return false;
+            }
+        }
+        
+        private static float QScale(int n) => 1.0f / (1 << n);
+
     }
 }

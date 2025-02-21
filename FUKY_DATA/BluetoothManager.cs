@@ -16,7 +16,7 @@ namespace FUKY_DATA.Services
     internal class BluetoothManager
     {
         // UI线程调度
-        public System.Windows.Threading.Dispatcher Dispatcher { get; set; } 
+        public System.Windows.Threading.Dispatcher Dispatcher { get; set; }
         // 事件定义
         public event Action<BluetoothDeviceInfo> DeviceAdded;
         public event Action<BluetoothDeviceInfo> DeviceUpdated;
@@ -44,8 +44,9 @@ namespace FUKY_DATA.Services
             _watcher.Removed += HandleDeviceRemoved;
         }
 
-        public void StartScanning() => _watcher?.Start();
-        public void StopScanning() => _watcher?.Stop();
+        public void StartScanning() { if (_watcher.Status == DeviceWatcherStatus.Created) _watcher?.Start(); }
+        
+        public void StopScanning() {if(_watcher.Status== DeviceWatcherStatus.Started) _watcher?.Stop(); }
 
         private async Task HandleDeviceAdded(DeviceInformation args)
         {

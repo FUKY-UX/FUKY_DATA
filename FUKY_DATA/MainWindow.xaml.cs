@@ -16,12 +16,18 @@ namespace FUKY_DATA.Views
         private readonly BluetoothManager _btManager = new BluetoothManager();
         //数据处理
         private readonly DataSolution _dataSolution;
+        //UI
         public ObservableCollection<BluetoothDeviceInfo> Devices => _btManager.Devices;
+        private readonly ObservableCollection<DataDisplayModel> _dataDisplay = new ObservableCollection<DataDisplayModel>();//IMU
+        private readonly DataDisplayModel _currentData = new DataDisplayModel();
 
         public MainWindow()
         {
             InitializeComponent();
             DeviceList.ItemsSource = Devices;
+            _dataDisplay.Add(_currentData);
+            DataView.ItemsSource = _dataDisplay;
+
             InitializeBluetoothManager();
             DataContext = this;
 
@@ -30,13 +36,26 @@ namespace FUKY_DATA.Views
             _dataSolution.ErrorOccurred += OnDataError;
         }
 
-        private void OnDataReceived(byte[] data) {
+        private void OnDataReceived(byte[] rawData, ImuData data) 
+        {
 
-            Debug.WriteLine($"接收数据: {data}");
-            //Dispatcher.Invoke(() => {
-            //    // 更新UI显示数据
-            //});
+            // 转换为十六进制字符串
+            var hexString = BitConverter.ToString(rawData).Replace("-", " ");
+
+            // 格式化四元数
+            var quatString = $"I:{data.QuatI} J:{data.QuatJ} K:{data.QuatK} W:{data.QuatW}";
+
+            // 格式化加速度
+            var accelString = $"X:{data.LinAccelX} Y:{data.LinAccelY} Z:{data.LinAccelZ}";
+
+            Dispatcher.Invoke(() =>
+            {
+                _currentData.RawData = hexString;
+                _currentData.Quaternion = quatString;
+                _currentData.Acceleration = accelString;
+            });
         }
+ 
 
         private void OnDataError(string message)
         {
@@ -73,8 +92,6 @@ namespace FUKY_DATA.Views
             _btManager.StopScanning();
             base.OnClosed(e);
         }
-
-
 
     }
 }
