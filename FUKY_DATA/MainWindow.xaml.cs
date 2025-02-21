@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows;
 using FUKY_DATA.Models;
 using FUKY_DATA.Services;
@@ -11,7 +12,10 @@ namespace FUKY_DATA.Views
 {
     public partial class MainWindow : Window
     {
+        //蓝牙连接检测
         private readonly BluetoothManager _btManager = new BluetoothManager();
+        //数据处理
+        private readonly DataSolution _dataSolution;
         public ObservableCollection<BluetoothDeviceInfo> Devices => _btManager.Devices;
 
         public MainWindow()
@@ -20,7 +24,25 @@ namespace FUKY_DATA.Views
             DeviceList.ItemsSource = Devices;
             InitializeBluetoothManager();
             DataContext = this;
+
+            _dataSolution = new DataSolution(_btManager);
+            _dataSolution.DataReceived += OnDataReceived;
+            _dataSolution.ErrorOccurred += OnDataError;
         }
+
+        private void OnDataReceived(byte[] data) {
+
+            Debug.WriteLine($"接收数据: {data}");
+            //Dispatcher.Invoke(() => {
+            //    // 更新UI显示数据
+            //});
+        }
+
+        private void OnDataError(string message)
+        {
+            Dispatcher.Invoke(() => MessageBox.Show(message));
+        }
+
 
         private void InitializeBluetoothManager()
         {
@@ -47,6 +69,7 @@ namespace FUKY_DATA.Views
 
         protected override void OnClosed(EventArgs e)
         {
+            _dataSolution.Dispose();
             _btManager.StopScanning();
             base.OnClosed(e);
         }

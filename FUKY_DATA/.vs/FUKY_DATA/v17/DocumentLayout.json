@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9657359A-9A06-41E1-BF7B-B9B95E146F60}|FUKY_DATA.csproj|c:\\users\\dell\\desktop\\fuky_driver\\fuky_data\\fuky_data\\datasolution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9657359A-9A06-41E1-BF7B-B9B95E146F60}|FUKY_DATA.csproj|solutionrelative:datasolution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9657359A-9A06-41E1-BF7B-B9B95E146F60}|FUKY_DATA.csproj|c:\\users\\dell\\desktop\\fuky_driver\\fuky_data\\fuky_data\\bluetoothmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9657359A-9A06-41E1-BF7B-B9B95E146F60}|FUKY_DATA.csproj|solutionrelative:bluetoothmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -30,11 +34,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 192,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "DataSolution.cs",
+              "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\DataSolution.cs",
+              "RelativeDocumentMoniker": "DataSolution.cs",
+              "ToolTip": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\DataSolution.cs",
+              "RelativeToolTip": "DataSolution.cs",
+              "ViewState": "AQIAAJEAAAAAAAAAAAAswKQAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T11:40:22.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MainWindow.g.i.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\obj\\x64\\Debug\\MainWindow.g.i.cs",
               "RelativeDocumentMoniker": "obj\\x64\\Debug\\MainWindow.g.i.cs",
@@ -42,25 +59,24 @@
               "RelativeToolTip": "obj\\x64\\Debug\\MainWindow.g.i.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T03:55:14.313Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-21T03:55:14.313Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "BluetoothManager.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\BluetoothManager.cs",
               "RelativeDocumentMoniker": "BluetoothManager.cs",
               "ToolTip": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\BluetoothManager.cs",
               "RelativeToolTip": "BluetoothManager.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAYwDEAAABEAAAA",
+              "ViewState": "AQIAAFgAAAAAAAAAAAA0wGoAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T15:32:15.168Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "BluetoothDeviceInfo.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\BluetoothDeviceInfo.cs",
               "RelativeDocumentMoniker": "BluetoothDeviceInfo.cs",
@@ -72,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -84,13 +100,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAxwBgAAAAxAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAgwCIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-20T08:34:48.742Z",
               "EditorCaption": ""
