@@ -64,7 +64,6 @@ namespace FUKY_DATA.Views
             Dispatcher.Invoke(() => MessageBox.Show(message));
         }
 
-
         private void InitializeBluetoothManager()
         {
 

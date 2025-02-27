@@ -23,7 +23,7 @@ namespace FUKY_DATA.Services
         public event Action<string> DeviceRemoved;
         public event Action<string> ErrorOccurred;
 
-        // 常量定义
+        // 扫描出BLE设备后会根据这个UUID确认是否时浮奇鼠
         private static readonly Guid TARGET_SERVICE_UUID = new Guid("0000f233-0000-1000-8000-00805f9b34fb");
 
         // 设备管理

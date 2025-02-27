@@ -12,3 +12,17 @@ C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA.cs
 C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA.exe
 C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA.pdb
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\bin\x64\Debug\System.Buffers.dll
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\bin\x64\Debug\System.Memory.dll
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\bin\x64\Debug\System.Numerics.Vectors.dll
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\bin\x64\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA.csproj.SuggestedBindingRedirects.cache
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA.exe.config
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Debug\FUKY_DATA.csproj.Up2Date
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\bin\x64\Debug\MessagePack.dll
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\bin\x64\Debug\MessagePack.Annotations.dll
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\bin\x64\Debug\Microsoft.NET.StringTools.dll
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\bin\x64\Debug\Microsoft.NET.StringTools.pdb
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\bin\x64\Debug\System.Collections.Immutable.dll
