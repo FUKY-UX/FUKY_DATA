@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows;
 using FUKY_DATA.Models;
 using FUKY_DATA.Services;
@@ -11,15 +12,56 @@ namespace FUKY_DATA.Views
 {
     public partial class MainWindow : Window
     {
+        //蓝牙连接检测
         private readonly BluetoothManager _btManager = new BluetoothManager();
+        //数据处理
+        private readonly DataSolution _dataSolution;
+        //UI
         public ObservableCollection<BluetoothDeviceInfo> Devices => _btManager.Devices;
+        private readonly ObservableCollection<DataDisplayModel> _dataDisplay = new ObservableCollection<DataDisplayModel>();//IMU
+        private readonly DataDisplayModel _currentData = new DataDisplayModel();
 
         public MainWindow()
         {
             InitializeComponent();
             DeviceList.ItemsSource = Devices;
+            _dataDisplay.Add(_currentData);
+            DataView.ItemsSource = _dataDisplay;
+
             InitializeBluetoothManager();
             DataContext = this;
+
+            _dataSolution = new DataSolution(_btManager);
+            _dataSolution.DataReceived += OnDataReceived;
+            _dataSolution.ErrorOccurred += OnDataError;
+        }
+
+        private void OnDataReceived(byte[] rawData, ImuData data) 
+        {
+
+
+            // 转换为十六进制字符串
+            var hexString = BitConverter.ToString(rawData).Replace("-", " ");
+
+            // 格式化四元数
+            var quatString = $"I:{data.QuaternionI:F5} J:{data.QuaternionJ:F5} K:{data.QuaternionK:F5} W:{data.QuaternionW:F5}";
+
+            // 格式化加速度
+            var accelString = $"X:{data.AccelerationX:F3} Y:{data.AccelerationY:F3} Z:{data.AccelerationZ:F3}";
+
+
+            Dispatcher.Invoke(() =>
+            {
+                _currentData.RawData = hexString;
+                _currentData.Quaternion = quatString;
+                _currentData.Acceleration = accelString;
+            });
+        }
+ 
+
+        private void OnDataError(string message)
+        {
+            Dispatcher.Invoke(() => MessageBox.Show(message));
         }
 
         private void InitializeBluetoothManager()
@@ -47,11 +89,10 @@ namespace FUKY_DATA.Views
 
         protected override void OnClosed(EventArgs e)
         {
+            _dataSolution.Dispose();
             _btManager.StopScanning();
             base.OnClosed(e);
         }
-
-
 
     }
 }

@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\Debug\
+C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\obj\x64\Release\
 FUKY_DATA
 none
 false
-TRACE;DEBUG;BLUETOOTH_DEVICE;BLUETOOTH_GATT
+TRACE
 C:\Users\DELL\Desktop\FUKY_Driver\FUKY_DATA\FUKY_DATA\App.xaml
 1219584333
 
