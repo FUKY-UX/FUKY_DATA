@@ -1,32 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\FUKY_DATA.csproj": {}
+    "/Users/caijoseph/Desktop/FUKY/FUKY_DATA/FUKY_DATA/FUKY_DATA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\FUKY_DATA.csproj": {
+    "/Users/caijoseph/Desktop/FUKY/FUKY_DATA/FUKY_DATA/FUKY_DATA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\FUKY_DATA.csproj",
+        "projectUniqueName": "/Users/caijoseph/Desktop/FUKY/FUKY_DATA/FUKY_DATA/FUKY_DATA.csproj",
         "projectName": "FUKY_DATA",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\FUKY_DATA.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\FUKY_Driver\\FUKY_DATA\\FUKY_DATA\\obj\\",
+        "projectPath": "/Users/caijoseph/Desktop/FUKY/FUKY_DATA/FUKY_DATA/FUKY_DATA.csproj",
+        "packagesPath": "/Users/caijoseph/.nuget/packages/",
+        "outputPath": "/Users/caijoseph/Desktop/FUKY/FUKY_DATA/FUKY_DATA/obj/",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/caijoseph/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net472"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -60,20 +55,6 @@
               "version": "[4.7.0, )"
             }
           }
-        }
-      },
-      "runtimes": {
-        "win": {
-          "#import": []
-        },
-        "win-arm64": {
-          "#import": []
-        },
-        "win-x64": {
-          "#import": []
-        },
-        "win-x86": {
-          "#import": []
         }
       }
     }
